@@ -27,6 +27,38 @@
 
         <!-- Template Stylesheet -->
         <link href="css/style.css" rel="stylesheet">
+        
+        <!-- Custom Modal Styles -->
+        <style>
+            .modal-content {
+                border-radius: 15px;
+                border: none;
+                box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            }
+            .modal-header {
+                background: linear-gradient(135deg, #007bff, #0056b3);
+                color: white;
+                border-radius: 15px 15px 0 0;
+            }
+            .modal-header .btn-close {
+                filter: invert(1);
+            }
+            .modal-body {
+                padding: 2rem;
+            }
+            .modal-footer {
+                border-top: 1px solid #dee2e6;
+                padding: 1rem 2rem;
+            }
+            .service-content a[data-bs-toggle="modal"] {
+                cursor: pointer;
+                transition: all 0.3s ease;
+            }
+            .service-content a[data-bs-toggle="modal"]:hover {
+                color: #007bff !important;
+                transform: translateY(-2px);
+            }
+        </style>
     </head>
 
     <body>
@@ -42,7 +74,7 @@
         <!-- Navbar & Hero Start -->
         <div class="container-fluid position-relative p-0">
             <nav class="navbar navbar-expand-lg navbar-light px-4 px-lg-5 py-3 py-lg-0">
-                <a href="" class="navbar-brand p-0" style="max-height: 100px;">
+                <a href="/" class="navbar-brand p-0" style="max-height: 100px;">
                     <div style="display: flex;">
                         <img src="img/cst-logo.png" style="" alt="Logo">
                     </div>
@@ -52,12 +84,22 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarCollapse">
                     <div class="navbar-nav ms-auto py-0">
-                        <a href="index.html" class="nav-item nav-link active" style="padding: 20px;">Home</a>
-                        <a href="about.html" class="nav-item nav-link" style="padding: 20px;">About</a>
-                        <a href="service.html" class="nav-item nav-link" style="padding: 20px;">Service</a>
-                        <a href="product.html" class="nav-item nav-link" style="padding: 20px;">Our Products</a>
+                        <a href="/index.html" class="nav-item nav-link active" style="padding: 20px;">Home</a>
+                        <a href="/about.html" class="nav-item nav-link" style="padding: 20px;">About</a>
+                        <a href="/service.html" class="nav-item nav-link" style="padding: 20px;">Service</a>
+                        
+                        <!-- Products Dropdown -->
+                        <div class="nav-item dropdown">
+                            <a href="#" class="nav-link dropdown-toggle" style="padding: 20px;" id="productsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Our Products</a>
+                            <ul class="dropdown-menu" aria-labelledby="productsDropdown">
+                                <li><a class="dropdown-item" href="/softeners.html">Water Softeners</a></li>
+                                <li><a class="dropdown-item" href="/ro-purifiers.html">RO Purifiers</a></li>
+                                <li><a class="dropdown-item" href="/commercial-purifiers.html">Commercial Purifiers</a></li>
+                                <li><a class="dropdown-item" href="/health-products.html">Health Products</a></li>
+                            </ul>
+                        </div>
 
-                        <a href="contact.html" class="nav-item nav-link" style="padding: 20px;">Contact</a>
+                        <a href="/contact.html" class="nav-item nav-link" style="padding: 20px;">Contact</a>
                     </div>
                     <div class="d-none d-xl-flex me-3">
                         <div class="d-flex flex-column pe-3 border-end border-primary">
@@ -168,6 +210,111 @@
             </div>
         </div>
         <!-- Modal Search End -->
+
+        <!-- Installation & Setup Modal -->
+        <div class="modal fade" id="installationModal" tabindex="-1" aria-labelledby="installationModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="installationModalLabel">Installation & Setup Service</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <img src="img/ewater-cup.png" class="img-fluid rounded" alt="Installation Service">
+                            </div>
+                            <div class="col-md-8">
+                                <h4 class="text-primary mb-3">Professional Installation Service</h4>
+                                <p class="mb-3">Our certified technicians provide complete installation and setup services for all our water softening systems.</p>
+                                <ul class="list-unstyled">
+                                    <li><i class="fas fa-check text-primary me-2"></i>Free site inspection and assessment</li>
+                                    <li><i class="fas fa-check text-primary me-2"></i>Professional installation by certified technicians</li>
+                                    <li><i class="fas fa-check text-primary me-2"></i>System testing and calibration</li>
+                                    <li><i class="fas fa-check text-primary me-2"></i>User training and maintenance guidance</li>
+                                    <li><i class="fas fa-check text-primary me-2"></i>1-year installation warranty</li>
+                                </ul>
+                                <p class="text-muted"><strong>Duration:</strong> 2-4 hours | <strong>Cost:</strong> Included with product purchase</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <a href="/contact.html" class="btn btn-primary">Book Installation</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Annual Maintenance Modal -->
+        <div class="modal fade" id="maintenanceModal" tabindex="-1" aria-labelledby="maintenanceModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="maintenanceModalLabel">Annual Maintenance Service</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <img src="img/ewater-pipe.png" class="img-fluid rounded" alt="Maintenance Service">
+                            </div>
+                            <div class="col-md-8">
+                                <h4 class="text-primary mb-3">Comprehensive Maintenance Plan</h4>
+                                <p class="mb-3">Keep your water softening system running at peak performance with our annual maintenance service.</p>
+                                <ul class="list-unstyled">
+                                    <li><i class="fas fa-check text-primary me-2"></i>System performance check and optimization</li>
+                                    <li><i class="fas fa-check text-primary me-2"></i>Salt refill and resin bed cleaning</li>
+                                    <li><i class="fas fa-check text-primary me-2"></i>Filter replacement and sanitization</li>
+                                    <li><i class="fas fa-check text-primary me-2"></i>Water quality testing</li>
+                                    <li><i class="fas fa-check text-primary me-2"></i>Preventive maintenance and repairs</li>
+                                </ul>
+                                <p class="text-muted"><strong>Service Frequency:</strong> Annual | <strong>Cost:</strong> ₹2,500 per visit</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <a href="/contact.html" class="btn btn-primary">Schedule Maintenance</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Free Water Testing Modal -->
+        <div class="modal fade" id="testingModal" tabindex="-1" aria-labelledby="testingModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="testingModalLabel">Free Water Testing Service</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <img src="img/ewater-swas.png" class="img-fluid rounded" alt="Water Testing Service">
+                            </div>
+                            <div class="col-md-8">
+                                <h4 class="text-primary mb-3">Comprehensive Water Analysis</h4>
+                                <p class="mb-3">Get a detailed analysis of your water quality to determine the best treatment solution for your needs.</p>
+                                <ul class="list-unstyled">
+                                    <li><i class="fas fa-check text-primary me-2"></i>Hardness level testing</li>
+                                    <li><i class="fas fa-check text-primary me-2"></i>pH level measurement</li>
+                                    <li><i class="fas fa-check text-primary me-2"></i>Contaminant analysis</li>
+                                    <li><i class="fas fa-check text-primary me-2"></i>Mineral content assessment</li>
+                                    <li><i class="fas fa-check text-primary me-2"></i>Personalized treatment recommendations</li>
+                                </ul>
+                                <p class="text-muted"><strong>Service:</strong> Completely Free | <strong>Duration:</strong> 30 minutes</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <a href="/contact.html" class="btn btn-primary">Book Free Test</a>
+                    </div>
+                </div>
+            </div>
+        </div>
 
        <!-- Feature Start -->
 <div class="container-fluid feature bg-light py-5">
@@ -429,7 +576,7 @@
                                     
                                 </div>
                                 <div class="service-content">
-                                    <a href="#" class="h4 d-inline-block mb-3">Installation & Setup</a>
+                                    <a href="#" class="h4 d-inline-block mb-3" data-bs-toggle="modal" data-bs-target="#installationModal">Installation & Setup</a>
                                     <p class="mb-0">Our certified technicians ensure quick and seamless installation at your location.</p>
                                 </div>
                             </div>
@@ -445,7 +592,7 @@
 
                                 </div>
                                 <div class="service-content">
-                                    <a href="#" class="h4 d-inline-block mb-3">Annual Maintenance</a>
+                                    <a href="#" class="h4 d-inline-block mb-3" data-bs-toggle="modal" data-bs-target="#maintenanceModal">Annual Maintenance</a>
                                     <p class="mb-0">Regular service and salt refills to keep your system running smoothly year-round.</p>
                                 </div>
                             </div>
@@ -460,8 +607,8 @@
                                     <div class="service-btn"><img style="width: 70px;" src='img/ewater-swas.png'></img></div>
                                 </div>
                                 <div class="service-content">
-                                    <a href="#" class="h4 d-inline-block mb-3">Free Water Testing</a>
-                                    <p class="mb-0">Book a free test to check your water’s hardness and get the right solution.</p>
+                                    <a href="#" class="h4 d-inline-block mb-3" data-bs-toggle="modal" data-bs-target="#testingModal">Free Water Testing</a>
+                                    <p class="mb-0">Book a free test to check your water's hardness and get the right solution.</p>
                                 </div>
                             </div>
                         </div>
@@ -488,7 +635,7 @@
                     <div class="product-content bg-light text-center rounded-bottom p-4">
                         <p>For Home Bathrooms</p>
                         <a href="#" class="h4 d-inline-block mb-3">Natural Inline Water Softener</a>
-                        <a class="btn btn-secondary rounded-pill py-2 px-4" href="product.html">Read More</a>
+                        <a class="btn btn-secondary rounded-pill py-2 px-4" href="/product.html">Read More</a>
                     </div>
                 </div>
             </div>
@@ -512,7 +659,7 @@
                     <div class="product-content bg-light text-center rounded-bottom p-4">
                         <p>Commercial & Industrial Use</p>
                         <a href="#" class="h4 d-inline-block mb-3">Heavy-Duty Industrial Softener</a>
-                        <a class="btn btn-secondary rounded-pill py-2 px-4" href="product.html">Read More</a>
+                        <a class="btn btn-secondary rounded-pill py-2 px-4" href="/product.html">Read More</a>
                     </div>
                 </div>
             </div>
@@ -813,6 +960,67 @@
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
+    
+    <!-- Modal Debug Script -->
+    <script>
+        // Ensure modals work properly
+        document.addEventListener('DOMContentLoaded', function() {
+            // Check if Bootstrap is loaded
+            if (typeof bootstrap !== 'undefined') {
+                console.log('Bootstrap is loaded successfully');
+                
+                // Test modal functionality
+                const installationModal = document.getElementById('installationModal');
+                const maintenanceModal = document.getElementById('maintenanceModal');
+                const testingModal = document.getElementById('testingModal');
+                
+                if (installationModal) {
+                    console.log('Installation modal found');
+                }
+                if (maintenanceModal) {
+                    console.log('Maintenance modal found');
+                }
+                if (testingModal) {
+                    console.log('Testing modal found');
+                }
+                
+                // Manual click handlers as fallback
+                const installationLink = document.querySelector('a[data-bs-target="#installationModal"]');
+                const maintenanceLink = document.querySelector('a[data-bs-target="#maintenanceModal"]');
+                const testingLink = document.querySelector('a[data-bs-target="#testingModal"]');
+                
+                if (installationLink) {
+                    installationLink.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        console.log('Installation modal triggered');
+                        const modal = new bootstrap.Modal(document.getElementById('installationModal'));
+                        modal.show();
+                    });
+                }
+                
+                if (maintenanceLink) {
+                    maintenanceLink.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        console.log('Maintenance modal triggered');
+                        const modal = new bootstrap.Modal(document.getElementById('maintenanceModal'));
+                        modal.show();
+                    });
+                }
+                
+                if (testingLink) {
+                    testingLink.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        console.log('Testing modal triggered');
+                        const modal = new bootstrap.Modal(document.getElementById('testingModal'));
+                        modal.show();
+                    });
+                }
+                
+            } else {
+                console.error('Bootstrap is not loaded');
+            }
+        });
+    </script>
     </body>
 
 
