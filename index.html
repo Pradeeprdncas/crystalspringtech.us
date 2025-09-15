@@ -964,67 +964,59 @@
     <!-- Modal Debug Script -->
     <script>
         // Ensure modals work properly
-        document.addEventListener('DOMContentLoaded', function() {
-            // Check if Bootstrap is loaded
-            if (typeof bootstrap !== 'undefined') {
-                console.log('Bootstrap is loaded successfully');
-                
-                // Test modal functionality
-                const installationModal = document.getElementById('installationModal');
-                const maintenanceModal = document.getElementById('maintenanceModal');
-                const testingModal = document.getElementById('testingModal');
-                
-                if (installationModal) {
-                    console.log('Installation modal found');
-                }
-                if (maintenanceModal) {
-                    console.log('Maintenance modal found');
-                }
-                if (testingModal) {
-                    console.log('Testing modal found');
-                }
-                
-                // Manual click handlers as fallback
-                const installationLink = document.querySelector('a[data-bs-target="#installationModal"]');
-                const maintenanceLink = document.querySelector('a[data-bs-target="#maintenanceModal"]');
-                const testingLink = document.querySelector('a[data-bs-target="#testingModal"]');
-                
-                if (installationLink) {
-                    installationLink.addEventListener('click', function(e) {
-                        e.preventDefault();
-                        console.log('Installation modal triggered');
-                        const modal = new bootstrap.Modal(document.getElementById('installationModal'));
-                        modal.show();
-                    });
-                }
-                
-                if (maintenanceLink) {
-                    maintenanceLink.addEventListener('click', function(e) {
-                        e.preventDefault();
-                        console.log('Maintenance modal triggered');
-                        const modal = new bootstrap.Modal(document.getElementById('maintenanceModal'));
-                        modal.show();
-                    });
-                }
-                
-                if (testingLink) {
-                    testingLink.addEventListener('click', function(e) {
-                        e.preventDefault();
-                        console.log('Testing modal triggered');
-                        const modal = new bootstrap.Modal(document.getElementById('testingModal'));
-                        modal.show();
-                    });
-                }
-                
-            } else {
-                console.error('Bootstrap is not loaded');
-            }
-        });
+       document.addEventListener('DOMContentLoaded', function() {
+    if (typeof bootstrap !== 'undefined') {
+        console.log('Bootstrap is loaded successfully');
+
+        // Pre-initialize modals
+        const installationModalEl = document.getElementById('installationModal');
+        const maintenanceModalEl = document.getElementById('maintenanceModal');
+        const testingModalEl = document.getElementById('testingModal');
+
+        const installationModal = installationModalEl ? new bootstrap.Modal(installationModalEl) : null;
+        const maintenanceModal = maintenanceModalEl ? new bootstrap.Modal(maintenanceModalEl) : null;
+        const testingModal = testingModalEl ? new bootstrap.Modal(testingModalEl) : null;
+
+        // Link handlers
+        const installationLink = document.querySelector('a[data-bs-target="#installationModal"]');
+        const maintenanceLink = document.querySelector('a[data-bs-target="#maintenanceModal"]');
+        const testingLink = document.querySelector('a[data-bs-target="#testingModal"]');
+
+        if (installationLink && installationModal) {
+            installationLink.addEventListener('click', function(e) {
+                e.preventDefault();
+                console.log('Installation modal triggered');
+                installationModal.show();
+            });
+        }
+
+        if (maintenanceLink && maintenanceModal) {
+            maintenanceLink.addEventListener('click', function(e) {
+                e.preventDefault();
+                console.log('Maintenance modal triggered');
+                maintenanceModal.show();
+            });
+        }
+
+        if (testingLink && testingModal) {
+            testingLink.addEventListener('click', function(e) {
+                e.preventDefault();
+                console.log('Testing modal triggered');
+                testingModal.show();
+            });
+        }
+
+    } else {
+        console.error('Bootstrap is not loaded');
+    }
+});
+
     </script>
     </body>
 
 
 </html>
+
 
 
 
